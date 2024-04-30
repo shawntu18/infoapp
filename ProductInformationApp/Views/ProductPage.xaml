@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ProductInformationApp.Views.ProductPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Product Page">
+    <VerticalStackLayout Padding="20">
+        <Image Source="{Binding Product.image_url}" WidthRequest="250" />
+        <Label
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Text="{Binding Product.product_name}" />
+        <Label
+            FontSize="14"
+            HorizontalOptions="Center"
+            Text="{Binding Product.brand_owner}" />
+
+        <ListView
+            Margin="0,30"
+            Header="Ingredients:"
+            HorizontalOptions="Center"
+            ItemsSource="{Binding Product.ingredients}"
+            SelectionMode="None"
+            VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
